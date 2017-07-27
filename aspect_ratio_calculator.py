@@ -1,10 +1,17 @@
 #!usr/bin/python
 # coding = utf-8
 
-#Aspect ratio program
+"""
+Aspect ratio program.
+
+Takes resolution and outputs aspect ratio. Or takes aspect ratio and half of a 
+resolution and returns a resolution.
+"""
 def give_ratio():
     width = int(input("Screen width: "))
     height = int(input("Screen height: "))
+    # Constantly divides resolution until it can't be divided any further without
+    # going into decimals
     while True:
         if (width / 2).is_integer() and (height / 2).is_integer():
             width = (width / 2)
@@ -15,6 +22,13 @@ def give_ratio():
         elif (width / 5).is_integer() and (height / 5).is_integer():
             width = (width / 5)
             height = (height / 5)
+        elif (width / 7).is_integer() and (height / 7).is_integer():
+            width = (width / 7)
+            height = (height / 7)
+        elif width == height:
+            width = 1
+            height = 1
+            break
         else:
             width = int(width)
             height = int(height)
